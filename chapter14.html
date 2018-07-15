@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chapter 14 Assignment</title>
+  <meta charset="utf-8">
+</head>
+<body>
+	<form method="post" onsubmit="return validateForm();" action="http://www.markmurtha.com/csis128/readform.asp">
+		Name: <input type="text" name="userName" id="userName">
+		<br>
+		E-Mail Address: <input type="text" name="userEmail" id="userEmail">
+		<br><input type="submit" value="Sign Up Now" id="submit" name="submit">
+	</form>
+	<script>
+	function validateForm() {
+	if (document.forms[0].userName.value == "") {
+		alert("Please enter a name.");
+		return false;
+		}
+	if (document.forms[0].userEmail.value == "") {
+		alert("Please enter an email.");
+		return false;
+		}
+	var correct_email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if(document.forms[0].userEmail.value.match(correct_email)){
+		return true;
+	}
+	else
+	{
+		alert("You have entered an invalid email address. Please try again.");
+		return false;
+	}
+}
+</script>
+</body>
+</html>
